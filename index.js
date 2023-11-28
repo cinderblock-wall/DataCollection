@@ -18,7 +18,16 @@ let columns = info[0].length
 
 console.log(columns);   
 
-//Instead of hard-coding four columns per row, expand your code to accept any number of columns. This should be calculated dynamically based on the first row of data.
+// make a for loop to put all arrays go into new array
+let arr2D = [];
+ 
+for (let i = 0; i <= info.length-1; i++){
+    let inf = info[i]
+    arr2D[i] = inf
+}
+
+console.log(arr2D)
+console.log(typeof arr2D)
 
 //* Part 3: Transforming Data
 
@@ -51,6 +60,7 @@ const users = [user1, user2, user3, user4]
 
 // console.log(users);
 
+
 //* Part 4: Sorting and Manipulating Data
 
 // let removedUser = users.pop();
@@ -75,7 +85,7 @@ let user6 = {
 users.push(user6)
 
 // let updatedInfo = removedUser.splice(1, 0, user5)
-// // Not Working with removed user as an array
+// Not Working with removed user as an array
 // console.log(updatedInfo);
 
 console.log(users);
@@ -88,3 +98,19 @@ users.forEach(item => {
 });
   
 console.log(total);
+
+//* Part 5: Transform back into CSV
+
+let newCsv = arr2D.flat()
+
+console.log(newCsv)
+let keys = newCsv.slice(0, 4)
+console.log(keys);
+let value = newCsv.slice(4, 8)
+console.log(value);
+
+let studentObj = {}
+for (let index = 0; index < keys.length; index++) {
+    studentObj[keys[index]] = value[index] 
+}
+console.log(studentObj);
